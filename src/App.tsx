@@ -66,9 +66,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Quiz!!
-      </h1>
+    <div className="flex flex-col justify-center items-center">
+      <h3 className="text-2xl">Let's Quiz!</h3>
+      {gameOver || userAnswers.length === QuestionAmount ? (
+        <button className="bg-emerald-300 rounded-3xl text-white p-4 hover:opacity-70" onClick={startQuiz}>
+          Start
+        </button>
+      ) : null}
+
+      {!gameOver ? <h3 className="text-2xl">Score: {score}</h3> : null}
+      {loading ? <h3 className="text-2xl">クイズを考えていますので、少し待ってね〜</h3> : null}
     </div>
   );
 }
