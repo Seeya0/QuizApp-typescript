@@ -80,7 +80,7 @@ function App() {
       {!loading && !gameOver && (
         <Question
           questionNum={number + 1}
-          totalQuestions={QuestionAmount}
+          QuestionAmount={QuestionAmount}
           question={questions[number].question}
           answers={questions[number].answers}
           userAnswer={userAnswers ? userAnswers[number] : null}
