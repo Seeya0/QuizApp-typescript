@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { fetchQuiz, Difficulty, QuestionState } from "./API";
+import Question from "./components/Question";
 
 const QuestionAmount = 5
 
@@ -73,9 +74,26 @@ function App() {
           Start
         </button>
       ) : null}
-
       {!gameOver ? <h3 className="text-2xl">Score: {score}</h3> : null}
       {loading ? <h3 className="text-2xl">クイズを考えていますので、少し待ってね〜</h3> : null}
+
+      {!loading && !gameOver && (
+        <Question
+          questionNum={number + 1}
+          totalQuestions={QuestionAmount}
+          question={questions[number].question}
+          answers={questions[number].answers}
+          userAnswer={userAnswers ? userAnswers[number] : null}
+          checkAnswer={checkAnswer}
+        />
+      )}
+
+      {!gameOver && !loading && userAnswers.length === number + 1 && number !== QuestionAmount - 1 ? (
+        <button className="bg-emerald-300 rounded-3xl text-white p-4 hover:opacity-70" onClick={moveToQuestion}>
+          次の問題
+        </button>
+      ) : null}
+
     </div>
   );
 }
