@@ -20,7 +20,7 @@ export type Question = {
 export type QuestionState = Question & { answers: string[] }
 
 export const fetchQuiz = async (amount: number, difficulty: Difficulty): Promise<QuestionState[]> => {
-    const endpoint = `https://opentdb.com/api.php?${amount}=10&difficulty=${difficulty}category=12&type=multiple`
+    const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&category=12&type=multiple`
     const response = await (await fetch(endpoint)).json();
 
     return response.results.map((question: Question) => ({

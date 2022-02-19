@@ -24,7 +24,7 @@ function App() {
     setGameOver(false);
     const newQuestions = await fetchQuiz(
       QuestionAmount,
-      "medium"
+      'medium'
     );
     setQuestions(newQuestions);
     setScore(0);
@@ -83,7 +83,7 @@ function App() {
           QuestionAmount={QuestionAmount}
           question={questions[number].question}
           answers={questions[number].answers}
-          userAnswer={userAnswers ? userAnswers[number] : null}
+          userAnswer={userAnswers ? userAnswers[number] : undefined}
           checkAnswer={checkAnswer}
         />
       )}
