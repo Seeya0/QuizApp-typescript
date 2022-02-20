@@ -67,14 +67,14 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h3 className="text-2xl">Let's Quiz!</h3>
+    <div className="flex flex-col justify-center items-center mt-10">
+      {gameOver ? <h3 className="text-2xl font-semibold text-[#087E8B]">クイズをはじめよう！</h3> : null}
       {gameOver || userAnswers.length === QuestionAmount ? (
-        <button className="bg-emerald-300 rounded-3xl text-white p-4 hover:opacity-70" onClick={startQuiz}>
-          Start
+        <button className="bg-emerald-300 rounded-3xl text-white py-4 px-8 hover:opacity-70 mt-8" onClick={startQuiz}>
+          スタート
         </button>
       ) : null}
-      {!gameOver ? <h3 className="text-2xl">Score: {score}</h3> : null}
+      {!gameOver ? <h3 className="text-2xl font-semibold text-[#087E8B]">Score: {score}</h3> : null}
       {loading ? <h3 className="text-2xl">クイズを考えていますので、少し待ってね〜</h3> : null}
 
       {!loading && !gameOver && (
