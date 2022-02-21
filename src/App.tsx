@@ -70,8 +70,8 @@ function App() {
     <div className="flex flex-col justify-center items-center mt-10">
       {gameOver ? <h3 className="text-2xl font-semibold text-[#087E8B]">クイズをはじめよう！</h3> : null}
       {gameOver || userAnswers.length === QuestionAmount ? (
-        <button className="bg-emerald-300 rounded-3xl text-white py-4 px-8 hover:opacity-70 mt-8" onClick={startQuiz}>
-          スタート
+        <button className="bg-emerald-300 rounded-3xl text-white py-4 px-8 hover:opacity-70 my-8" onClick={startQuiz}>
+          {(userAnswers.length === QuestionAmount) ? "もう一回やる" : "スタート"}
         </button>
       ) : null}
       {!gameOver ? <h3 className="text-2xl font-semibold text-[#087E8B]">Score: {score}</h3> : null}
@@ -89,7 +89,7 @@ function App() {
       )}
 
       {!gameOver && !loading && userAnswers.length === number + 1 && number !== QuestionAmount - 1 ? (
-        <button className="bg-emerald-300 rounded-3xl text-white p-4 hover:opacity-70" onClick={moveToQuestion}>
+        <button className="bg-emerald-300 rounded-3xl text-white p-4 px-20 hover:opacity-70" onClick={moveToQuestion}>
           次の問題
         </button>
       ) : null}
